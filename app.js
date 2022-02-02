@@ -1,6 +1,9 @@
 const express = require('express')
 const app = express()
 const { models: { Product } } = require('./db')
+const cors = require('cors')
+
+app.use(cors())
 
 module.exports = app
 

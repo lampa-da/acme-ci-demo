@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const { STRING } = Sequelize;
 
-const config = {}
+const config = {} // if some problems with pushing to heroku
 if(process.env.SSL){
   console.log('yes')
   config.dialectOptions = {
