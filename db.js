@@ -1,7 +1,17 @@
 const Sequelize = require('sequelize');
 const { STRING } = Sequelize;
 
-const conn = new Sequelize(process.env.DATABASE_URL || 'postgres://localhost/acme_db');
+const config = {}
+if(process.env.SSL){
+  console.log('yes')
+  config.dialectOptions = {
+    ssn: {
+      rejectUnauthorized: false
+    }
+  }
+}
+
+const conn = new Sequelize(process.env.DATABASE_URL || 'postgres://localhost/acme_db', config);
 
 const Product = conn.define('product', {
   name: STRING
